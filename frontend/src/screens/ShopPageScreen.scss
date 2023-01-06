@@ -1,0 +1,64 @@
+@import "../utilities/sass/variables";
+@import "../utilities/sass/mixins";
+
+.shop-page {
+  position: relative;
+  .shop-banner {
+    position: fixed;
+    filter: blur(3px);
+    top: 0;
+    width: 100%;
+    z-index: -1;
+    img {
+      width: 100%;
+      height: 510px;
+      object-fit: cover;
+    }
+  }
+  .shop-logo {
+    position: absolute;
+    background-color: $white;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    overflow: hidden;
+    border-radius: 100%;
+    img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 100%;
+      @include screen-up(m) {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  }
+  .shop-details {
+    background-color: $black-transparent;
+    height: 500px;
+    .shop-name {
+      background-color: $white-transparent;
+      border-radius: 5px;
+    }
+  }
+  .box {
+    background-color: $white;
+    padding: 0 10px 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+  }
+  .stripe {
+    width: 100%;
+    background-color: $gold;
+    padding: 5px 10px;
+  }
+  .shop-contents {
+    background-color: $bg;
+  }
+}

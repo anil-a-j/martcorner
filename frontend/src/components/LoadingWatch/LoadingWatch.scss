@@ -1,0 +1,69 @@
+@import "../../utilities/sass/variables";
+
+.clock {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  border: 2px solid $green;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  background-color: $white;
+  .round {
+    width: 10%;
+    height: 10%;
+    border-radius: 100%;
+    background-color: $green;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .common {
+    height: 3%;
+    position: absolute;
+    background-color: $green;
+    transform: rotate(360deg);
+    transform-origin: right;
+    animation-name: rotate;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-timing-function: linear;
+    border-radius: 100% 0px 0px 100%;
+  }
+  .second {
+    width: 35%;
+    left: 16%;
+    animation-duration: 60s;
+    @extend .common;
+  }
+  .millisecond {
+    width: 45%;
+    left: 6%;
+    animation-duration: 1s;
+    @extend .common;
+  }
+  @keyframes rotate {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.loading {
+  width: 100%;
+  height: 100vh;
+  background: $white-transparent;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 999;
+  top: 0;
+  left: 0;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

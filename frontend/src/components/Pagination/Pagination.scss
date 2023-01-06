@@ -1,0 +1,19 @@
+@import "../../utilities/sass/_variables.scss";
+
+.pagination {
+  .page {
+    width: 30px;
+    height: 30px;
+    background-color: $white;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    &:hover {
+      background-color: $bg;
+    }
+    &.active {
+      color: $white !important;
+      background-color: $black !important;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+@import "../../../utilities/sass/variables";
+
+.shop-reviews {
+  form {
+    border-radius: 5px;
+    background-color: $data-box;
+  }
+  .review {
+    margin: 10px 0px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: $data-box;
+  }
+}

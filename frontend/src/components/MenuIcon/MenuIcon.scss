@@ -1,0 +1,67 @@
+@import "../../utilities/sass/variables";
+
+.menu-bar {
+  height: 50px;
+  padding: 10px;
+  transform: translateX(45px);
+  transition: all 1s;
+  cursor: pointer;
+  margin-top: 8px;
+  .bar {
+    height: 5px;
+    margin-bottom: 5px;
+    background-color: $green;
+    display: block;
+    border-radius: 10px;
+    &.bar1 {
+      width: 30px;
+    }
+    &.bar2 {
+      width: 10px;
+    }
+    &.bar3 {
+      width: 20px;
+    }
+  }
+  &.close {
+    transform: translateX(0px);
+    .bar1 {
+      animation: close1 1s linear 0s 1 normal both;
+    }
+    .bar2 {
+      animation: close2 1s linear 0s 1 normal both;
+    }
+    .bar3 {
+      animation: close3 1s linear 0s 1 normal both;
+    }
+  }
+}
+
+@keyframes close1 {
+  from {
+    transform: rotateZ(0deg) translateX(0px);
+  }
+  to {
+    transform: rotateZ(45deg) translateX(10px);
+  }
+}
+
+@keyframes close2 {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes close3 {
+  from {
+    transform: rotateZ(0deg) translateY(0px) translateX(0px);
+    width: 0;
+  }
+  to {
+    transform: rotateZ(-45deg) translateY(-4px) translateX(14px);
+    width: 30px;
+  }
+}

@@ -1,0 +1,19 @@
+@import "../../../utilities/sass/variables";
+
+.shop-navbar {
+  display: flex;
+  margin: 0px;
+  li {
+    list-style: none;
+    a {
+      color: $white;
+      &:hover {
+        color: $bg;
+      }
+      p {
+        padding: 0px;
+        margin: 8px;
+      }
+    }
+  }
+}

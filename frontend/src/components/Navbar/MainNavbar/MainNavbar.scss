@@ -1,0 +1,55 @@
+@import "../../../utilities/sass/variables";
+@import "../../../utilities/sass/mixins";
+.navbar {
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+  top: 0;
+  background-color: $white;
+  .brand {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    @include screen-up(s) {
+      position: static;
+      transform: translateX(0);
+      padding-left: 50px;
+    }
+    img {
+      width: 150px;
+    }
+  }
+  ul {
+    margin-left: auto;
+    li {
+      margin: 10px 10px;
+      display: inline-block;
+      &.search,
+      &.add-shop,
+      &.sign-up {
+        display: none;
+        @include screen-up(s) {
+          display: inline-block;
+        }
+      }
+      &:last-child {
+        color: $menu;
+        font-weight: bold;
+        transition: all 0.5s;
+        &:hover {
+          color: $black;
+          cursor: pointer;
+        }
+      }
+      a {
+        color: $menu;
+        text-decoration: none;
+        transition: all 0.5s;
+        font-weight: bold;
+        &:hover {
+          color: $black;
+        }
+      }
+    }
+  }
+}

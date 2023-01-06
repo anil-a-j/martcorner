@@ -1,0 +1,475 @@
+//variables import
+@import "./utilities/sass/variables";
+//font import
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;600&display=swap");
+@import "./utilities/sass/mixins";
+
+.App {
+  font-family: "Inter", sans-serif;
+}
+
+// basic styles for elements
+
+body {
+  overflow-y: auto;
+  ////////////////////////////////////////////////////////////////////////
+  background-color: $bg;
+  input[type="text"],
+  input[type="password"],
+  input[type="number"],
+  input[type="email"],
+  select,
+  textarea {
+    border: none;
+    height: 50px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    font-weight: 400;
+    &:focus-visible {
+      border: 2px solid $green;
+      outline: none;
+    }
+  }
+  ///////////////////////////////////////////////////////////////////////
+  input[type="number"],
+  select {
+    &:focus-visible {
+      &.no-focus-border {
+        border: none;
+      }
+    }
+  }
+  ///////////////////////////////////////////////////////////////////////
+  textarea {
+    min-height: 100px;
+    max-height: 100px;
+  }
+  //////////////////////////////////////////////////////////////////////
+  .radio {
+    i {
+      font-style: normal;
+    }
+  }
+  ///////////////////////////////////////////////////////////////////////
+  input[type="radio"] {
+    width: 20px;
+    height: 20px;
+    vertical-align: sub;
+    &::before {
+      content: "";
+      width: 20px;
+      height: 20px;
+      border: 5px solid $green;
+      position: absolute;
+      border-radius: 100px;
+    }
+    &:checked::before {
+      background-color: $black;
+      border: 2px solid $green;
+    }
+  }
+  input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+    &::before {
+      content: "";
+      width: 20px;
+      height: 20px;
+      border: 5px solid $green;
+      position: absolute;
+    }
+    &:checked::before {
+      background-color: $black;
+      border: 2px solid $green;
+    }
+  }
+  //////////////////////////////////////////////////////////////////////////
+  .input-combined {
+    background-color: $white;
+    border-radius: 5px;
+    &:focus-within {
+      outline: 2px solid $green;
+    }
+  }
+  ///////////////////////////////////////////////////////////////////////////
+  .link {
+    font-style: italic;
+    color: $menu;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+  ////////////////////////////////////////////////////////////////////////////
+  button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    &.close {
+      background-color: $black;
+      color: $white;
+    }
+    &.delete {
+      background-color: $delete;
+      color: $white;
+    }
+    &.search {
+      background-color: $green;
+      color: $white;
+      height: 50px;
+      &:hover {
+        background-color: $title;
+      }
+    }
+  }
+  button[type="submit"] {
+    background-color: $green;
+    color: $white;
+    font-weight: bold;
+    &:hover {
+      background-color: $title;
+    }
+  }
+  ////////////////////////////////////////////////////////////////////////////
+  a {
+    text-decoration: none;
+    color: $menu;
+    font-weight: bold;
+    &:hover {
+      color: $gold;
+    }
+  }
+  ////////////////////////////////////////////////////////////////////////////
+  .toggle-button {
+    width: 50px;
+    height: 30px;
+    background: $white;
+    border-radius: 100px;
+    outline: 2px solid $black;
+    position: relative;
+    &::after {
+      content: "";
+      width: 25px;
+      height: 25px;
+      background-color: $black;
+      position: absolute;
+      border-radius: 100px;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 2px;
+      transition: cubic-bezier(0.92, 0.01, 0.35, 1.03) 0.5s;
+    }
+    &.clicked {
+      outline: 2px solid $green;
+      &::after {
+        left: 23px;
+        background-color: $green;
+      }
+    }
+  }
+  ///////////////////////////////////////////////////////////////////////
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: 400;
+    margin: 0;
+  }
+  //////////////////////////////////////////////////////////////////////////
+  small,
+  .small {
+    font-weight: 600;
+    font-size: 12px;
+    padding: 2px 10px;
+    border-radius: 5px;
+    margin: 10px 0px 5px 0px;
+    &.info {
+      color: $info-fg;
+      background-color: $info-bg;
+    }
+    &.label {
+      color: $label-fg;
+      background-color: $label-bg;
+    }
+    &.error {
+      color: $error-fg;
+      background-color: $error-bg;
+    }
+  }
+  //////////////////////////////////////////////////////////////
+  .image-upload {
+    width: 100%;
+    height: 100px;
+    position: relative;
+    &::before {
+      content: "Click to upload";
+      background-color: $white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      border: 1px solid $menu;
+      position: absolute;
+      border-radius: 5px;
+      border: 2px dashed $black;
+      font-weight: 600;
+    }
+  }
+  ////////////////////////////////////////////////////////////////////////////////
+  .c-card {
+    width: 210px;
+    height: 380px;
+    border-radius: 5px;
+    background: $white;
+    position: relative;
+    h5 {
+      text-transform: capitalize;
+    }
+    .c-images {
+      border-radius: 5px 5px 0px 0px;
+      overflow: hidden;
+      position: relative;
+      img {
+        min-width: 100%;
+        height: 150px;
+        object-fit: cover;
+        transition: cubic-bezier(0.32, 0.03, 0.42, 0.93) 1s;
+      }
+      .img-btns {
+        bottom: 0;
+        z-index: 999;
+        height: 20px;
+        .img-btn {
+          width: 10px;
+          height: 10px;
+          border: 2px solid $menu;
+          cursor: pointer;
+          &.active {
+            background-color: $menu;
+            border: none;
+            cursor: default;
+          }
+        }
+      }
+    }
+    .c-logo-bg {
+      position: absolute;
+      z-index: 9;
+      width: 100%;
+      height: 100%;
+      backdrop-filter: blur(2px);
+      -webkit-backdrop-filter: blur(2px);
+      overflow: hidden;
+      .c-logo {
+        border: 5px solid $white;
+        overflow: hidden;
+        border-radius: 100%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        img {
+          object-fit: cover;
+          width: 80px;
+          height: 80px;
+        }
+      }
+    }
+    .c-category {
+      color: $black;
+      background-color: $bg;
+      border-radius: 10px;
+      text-align: center;
+    }
+    .c-discount {
+      padding: 8px;
+      color: $white;
+      border-radius: 100%;
+      background-color: $gold;
+    }
+    .c-shop-description {
+      height: 80px;
+      color: $black;
+      font-size: 14px;
+    }
+    .c-product-description {
+      height: 30px;
+      color: $black;
+      font-size: 14px;
+    }
+    .c-stock-discount {
+      height: 50px;
+    }
+    button {
+      &.c-edit {
+        background-color: $menu;
+        color: $white;
+      }
+      &.c-delete {
+        background-color: $delete;
+        color: $white;
+      }
+      &.c-add {
+        background-color: $black;
+        color: $white;
+      }
+      &.c-favorite {
+        background-color: $gold;
+        color: $white;
+      }
+    }
+  }
+  ///////////////////////text colors
+  .text-new-price {
+    color: $green;
+  }
+  .text-title {
+    color: $title;
+  }
+  .text-disabled {
+    color: $disabled;
+  }
+  ///////////////////////overlapping div - cover down 10px
+  .cover-down-10 {
+    transform: translateY(10px);
+    position: relative;
+    z-index: 9;
+  }
+  ///////////////////////////
+  .popup-window {
+    overflow-y: auto;
+    @include screen-up(m) {
+      overflow-y: hidden;
+    }
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    background-color: $black-transparent;
+    z-index: 999;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    left: 0;
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+    &.popup-small {
+      .content {
+        width: 400px;
+        height: 250px;
+        background-color: $bg;
+        border-radius: 5px;
+      }
+    }
+    &.popup-large {
+      .content {
+        padding: 25px;
+        background-color: $bg;
+        border-radius: 5px;
+      }
+    }
+    &.popup-delete {
+      .content {
+        color: $white;
+        background-color: $delete-bg;
+        input {
+          border-radius: 0px;
+          &:focus-visible {
+            border-color: transparent;
+          }
+        }
+      }
+    }
+  }
+  ///////////////////////////////////////////////
+  .view-product {
+    max-width: 800px;
+    .images {
+      overflow: hidden;
+      position: relative;
+      height: 350px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: cubic-bezier(0.32, 0.03, 0.42, 0.93) 1s;
+      }
+      .img-btns {
+        top: 0;
+        z-index: 999;
+        height: 100%;
+        width: 30px;
+        background-color: $black-transparent;
+        .img-btn {
+          width: 10px;
+          height: 10px;
+          border: 2px solid $menu;
+          cursor: pointer;
+          &.active {
+            background-color: $menu;
+            border: none;
+            cursor: default;
+          }
+        }
+      }
+    }
+  }
+  /////////////////////////////////////////////////////////////////////////
+  .delete-image {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    &::before {
+      content: "x";
+      width: 30px;
+      height: 30px;
+      background-color: red;
+      position: absolute;
+      top: -10px;
+      left: -10px;
+      z-index: 999;
+      color: $white;
+      border-radius: 100%;
+      text-align: center;
+      font-weight: bold;
+      font-size: 18px;
+    }
+  }
+  ///////////////////////////////////////////////////////////
+  .limit-text {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
+    display: -webkit-box;
+    &.limit-1l {
+      line-clamp: 1;
+      -webkit-line-clamp: 1;
+    }
+    &.limit-4l {
+      line-clamp: 4;
+      -webkit-line-clamp: 4;
+    }
+    &.limit-8l {
+      line-clamp: 8;
+      -webkit-line-clamp: 8;
+    }
+  }
+  ///////////////////////////////////////////////
+  hr {
+    border-color: $white;
+    margin: 0;
+  }
+  ///////////////////////////////////////////////
+  .form-box {
+    background-color: $data-box;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  .Toastify__toast-container {
+    z-index: 999;
+  }
+  ///////////////////////////////////////////////
+  // write style just above this line
+}

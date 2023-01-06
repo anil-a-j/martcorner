@@ -1,0 +1,31 @@
+@import "../../../utilities/sass/variables";
+@import "../../../utilities/sass/mixins";
+
+.bottom-navbar {
+  @include screen-up(s) {
+    display: none;
+  }
+  display: flex;
+  position: fixed;
+  z-index: 90;
+  bottom: 0;
+  list-style: none;
+  width: 100%;
+  background-color: $green-transparent;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  margin: 0;
+
+  li {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    a {
+      color: $white;
+      &:hover {
+        color: $black;
+      }
+    }
+  }
+}

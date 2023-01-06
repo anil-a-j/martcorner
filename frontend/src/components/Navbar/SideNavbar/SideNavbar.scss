@@ -1,0 +1,48 @@
+@import "../../../utilities/sass/variables";
+@import "../../../utilities/sass/mixins";
+
+.side-navbar {
+  position: fixed;
+  width: 100%;
+  @include screen-up(s) {
+    width: 300px;
+    transform: translateX(-300px);
+  }
+  z-index: 5;
+  top: 0;
+  height: 100vh;
+  color: $menu;
+  background-color: transparent;
+  transform: translateX(-100%);
+  backdrop-filter: blur(0px);
+  -webkit-backdrop-filter: blur(0px);
+  transition: all 1s;
+  ul {
+    padding: 0;
+    li {
+      list-style: none;
+      transition: all 0.8s;
+      a {
+        color: $menu;
+      }
+      &:hover {
+        a {
+          color: $black;
+        }
+        background-color: $bg;
+      }
+      p {
+        text-align: left;
+        margin: 0px;
+      }
+    }
+  }
+}
+
+.transformed {
+  transform: translateX(0px) !important;
+  background-color: $white-transparent;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 99;
+}
