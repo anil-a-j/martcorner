@@ -23,7 +23,7 @@ const ReviewPagination = ({ pages, page, id }) => {
         onClick={() =>
           dispatch(
             getReviews({
-              pageSize: 5,
+              pageSize: 8,
               page: pages - (pages - 1),
               id,
             })
@@ -45,7 +45,7 @@ const ReviewPagination = ({ pages, page, id }) => {
                 onClick={() =>
                   dispatch(
                     getReviews({
-                      pageSize: 5,
+                      pageSize: 8,
                       page: key + 1,
                       id,
                     })
@@ -66,7 +66,7 @@ const ReviewPagination = ({ pages, page, id }) => {
               onClick={() =>
                 dispatch(
                   getReviews({
-                    pageSize: 5,
+                    pageSize: 8,
                     page: page - 4,
                     id,
                   })
@@ -83,7 +83,7 @@ const ReviewPagination = ({ pages, page, id }) => {
               onClick={() =>
                 dispatch(
                   getReviews({
-                    pageSize: 5,
+                    pageSize: 8,
                     page: page - 3,
                     id,
                   })
@@ -100,7 +100,7 @@ const ReviewPagination = ({ pages, page, id }) => {
               onClick={() =>
                 dispatch(
                   getReviews({
-                    pageSize: 5,
+                    pageSize: 8,
                     page: page - 2,
                     id,
                   })
@@ -117,7 +117,7 @@ const ReviewPagination = ({ pages, page, id }) => {
               onClick={() =>
                 dispatch(
                   getReviews({
-                    pageSize: 5,
+                    pageSize: 8,
                     page: page - 1,
                     id,
                   })
@@ -133,7 +133,7 @@ const ReviewPagination = ({ pages, page, id }) => {
             onClick={() =>
               dispatch(
                 getReviews({
-                  pageSize: 5,
+                  pageSize: 8,
                   page: page,
                   id,
                 })
@@ -149,7 +149,7 @@ const ReviewPagination = ({ pages, page, id }) => {
               onClick={() =>
                 dispatch(
                   getReviews({
-                    pageSize: 5,
+                    pageSize: 8,
                     page: page + 1,
                     id,
                   })
@@ -166,7 +166,7 @@ const ReviewPagination = ({ pages, page, id }) => {
               onClick={() =>
                 dispatch(
                   getReviews({
-                    pageSize: 5,
+                    pageSize: 8,
                     page: page + 2,
                     id,
                   })
@@ -183,7 +183,7 @@ const ReviewPagination = ({ pages, page, id }) => {
               onClick={() =>
                 dispatch(
                   getReviews({
-                    pageSize: 5,
+                    pageSize: 8,
                     page: page + 3,
                     id,
                   })
@@ -200,7 +200,7 @@ const ReviewPagination = ({ pages, page, id }) => {
               onClick={() =>
                 dispatch(
                   getReviews({
-                    pageSize: 5,
+                    pageSize: 8,
                     page: page + 4,
                     id,
                   })
@@ -218,7 +218,7 @@ const ReviewPagination = ({ pages, page, id }) => {
         onClick={() =>
           dispatch(
             getReviews({
-              pageSize: 5,
+              pageSize: 8,
               page: pages,
               id,
             })

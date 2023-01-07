@@ -48,12 +48,12 @@ const ShopPageReviews = ({ changeShopRating, id }) => {
   };
 
   useEffect(() => {
-    dispatch(getReviews({ pageSize: 5, page: 1, id }));
+    dispatch(getReviews({ pageSize: 8, page: 1, id }));
   }, []);
 
   useEffect(() => {
     if (addReviewFulfilled) {
-      dispatch(getReviews({ pageSize: 5, page: 1, id }));
+      dispatch(getReviews({ pageSize: 8, page: 1, id }));
       changeShopRating({
         rating: addReviewFulfilled.currentRatings.rating,
         reviews: addReviewFulfilled.currentRatings.numReviews,
@@ -64,11 +64,14 @@ const ShopPageReviews = ({ changeShopRating, id }) => {
     if (addReviewRejected) {
       toast.error(addReviewRejected);
     }
+    if (loadReviewsRejected) {
+      toast.error(loadReviewsRejected);
+    }
 
     return () => {
       dispatch(resetReviewValues());
     };
-  }, [id, addReviewFulfilled, addReviewRejected]);
+  }, [id, addReviewFulfilled, addReviewRejected, loadReviewsRejected]);
 
   return (
     <div className="shop-reviews">
@@ -104,20 +107,18 @@ const ShopPageReviews = ({ changeShopRating, id }) => {
       <div className="w-100">
         {!loadReviewsPending ? (
           loadReviewsFulfilled &&
-          loadReviewsFulfilled.reviews.map(
-            ({ title, review, rating, customer }, key) => {
-              return (
-                <div className="review" key={key}>
-                  <div className="d-flex align-items-center justify-content-between">
-                    <RatingStars rating={rating} />
-                    <p className="small m-0 info">{customer.fullname}</p>
-                  </div>
-                  <h6 className="mt-2 m-0 fw-bold">{title}</h6>
-                  <p>{review}</p>
+          loadReviewsFulfilled.reviews.map(({ reviews }, key) => {
+            return (
+              <div className="review" key={key}>
+                <div className="d-flex align-items-center justify-content-between">
+                  <RatingStars rating={reviews.rating} />
+                  <p className="small m-0 info">{reviews.customer}</p>
                 </div>
-              );
-            }
-          )
+                <h6 className="mt-2 m-0 fw-bold">{reviews.title}</h6>
+                <p>{reviews.review}</p>
+              </div>
+            );
+          })
         ) : (
           <LoadingWatch />
         )}
@@ -127,7 +128,6 @@ const ShopPageReviews = ({ changeShopRating, id }) => {
         page={loadReviewsFulfilled.page}
         id={id}
       />
-      {loadReviewsRejected && <p>{loadReviewsRejected}</p>}
     </div>
   );
 };

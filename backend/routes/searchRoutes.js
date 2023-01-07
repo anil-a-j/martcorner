@@ -9,7 +9,7 @@ import {
 
 import { protect } from "../middleware/authMiddleware.js";
 
-router.route("/shop/products").get(protect, getShopSearchProducts);
+router.route("/shop/products").get(getShopSearchProducts);
 router.route("/customer/products").get(getCustomerSearchProducts);
 router.route("/favorite/shops").get(protect, getSearchFavoriteShop);
 

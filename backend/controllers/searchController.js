@@ -11,6 +11,8 @@ const getShopSearchProducts = AsyncHandler(async (req, res) => {
 
   const page = Number(req.query.page) || 1;
 
+  console.log("here i am");
+
   const filter = {
     productName: { $regex: query, $options: "i" },
     productShop: id,

@@ -32,14 +32,12 @@ export const getShopSearchProductsService = async ({
   page,
   id,
 }) => {
-  const access = await getAccessKey();
   const api = await fetch(
     `/api/search/shop/products?query=${searchQuery}&pagesize=${pageSize}&page=${page}&id=${id}`,
     {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `BearerShop ${access}`,
       },
     }
   );
