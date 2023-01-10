@@ -11,8 +11,6 @@ const getShopSearchProducts = AsyncHandler(async (req, res) => {
 
   const page = Number(req.query.page) || 1;
 
-  console.log("here i am");
-
   const filter = {
     productName: { $regex: query, $options: "i" },
     productShop: id,
@@ -36,8 +34,8 @@ const getShopSearchProducts = AsyncHandler(async (req, res) => {
 });
 
 // @desc customer get shop products based on query
-// @route GET /api/search/customer/products?product=${product}&place=${place}&district=${district}&state=${state}
-// @access private
+// @route GET /api/search/customer/products?product=${product}&place=${place}&district=${district}&state=${state}&pageSize=${pageSize}&page=${page}&customerId=${customerId}
+// @access public
 const getCustomerSearchProducts = AsyncHandler(async (req, res) => {
   const { query, searchType, district, state, customerId } = req.query;
 
@@ -63,7 +61,7 @@ const getCustomerSearchProducts = AsyncHandler(async (req, res) => {
           .populate("storeType")
           .populate({
             path: "favCustomers",
-            match: { _id: { $eq: customerId } },
+            match: customerId !== "null" ? { _id: { $eq: customerId } } : {},
             select: "_id",
           })
           .limit(pagesize)
@@ -146,7 +144,7 @@ const getCustomerSearchProducts = AsyncHandler(async (req, res) => {
           .populate("storeType")
           .populate({
             path: "favCustomers",
-            match: { _id: { $eq: customerId } },
+            match: customerId !== "null" ? { _id: { $eq: customerId } } : {},
             select: "_id",
           })
           .limit(pagesize)

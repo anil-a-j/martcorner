@@ -26,12 +26,15 @@ import PageNotFound404Screen from "./screens/PageNotFound404Screen";
 import { selectMisc } from "./redux/misc/miscSlice";
 import FavoriteShopsScreen from "./screens/FavoriteShopsScreen";
 import { ToastContainer } from "react-toastify";
+import AddItemPopup from "./components/Product/AddItemPopup/AddItemPopup";
+import { selectCart } from "./redux/cart/cartSlice";
 
 function App() {
   const [locked, setLocked] = useState("");
   const { customerInfoFulfilled } = useSelector(selectCustomer);
   const { shopInfoFulfilled } = useSelector(selectShop);
   const { forgetUser } = useSelector(selectMisc);
+  const { addItemPopup } = useSelector(selectCart);
 
   const removeUser = (e) => {
     e.preventDefault();
@@ -100,6 +103,7 @@ function App() {
             <Route path="*" element={<PageNotFound404Screen />} />
           </Routes>
           <BottomNavbar />
+
           <ToastContainer
             position="bottom-center"
             autoClose={3000}
@@ -109,6 +113,7 @@ function App() {
             newestOnTop
             theme="light"
           />
+          {addItemPopup && <AddItemPopup />}
         </main>
       </Router>
     </div>

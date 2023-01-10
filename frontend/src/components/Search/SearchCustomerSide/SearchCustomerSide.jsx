@@ -98,7 +98,8 @@ const SearchCustomerSide = () => {
   }, [statesError, districtsError]);
 
   return (
-    <div className="container mt-5 form-box">
+    <div className="container form-box">
+      <h2 className="mb-2 text-start text-title">Search</h2>
       <form
         onSubmit={submitSearchProduct}
         className="d-flex justify-content-center flex-column"

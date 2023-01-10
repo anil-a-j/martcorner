@@ -4,8 +4,7 @@ import SearchResult from "../components/Search/SearchResult/SearchResult";
 
 const SearchScreen = () => {
   return (
-    <div className="container p-0 my-4">
-      <h2 className="my-3 text-center">Search</h2>
+    <div className="container mt-4 pt-5">
       <SearchCustomerSide />
       <SearchResult />
     </div>

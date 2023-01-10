@@ -98,7 +98,7 @@ const shopSchema = mongoose.Schema(
     favCustomers: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        required: true,
+        required: false,
         ref: "Customer",
       },
     ],

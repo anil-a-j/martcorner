@@ -1,8 +1,15 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import { selectCustomer } from "../../../redux/customer/customerSlice";
 import { twoSliderX } from "../../../utilities/twoSlider/twoSlider";
+import { openAddItemPopup } from "../../../redux/cart/cartSlice";
 
-const CustomerProductCard = ({ product, viewProductPopup }) => {
+const CustomerProductCard = ({
+  product,
+  viewProductPopup,
+  createAccountMessage,
+}) => {
   const {
     _id,
     productImages,
@@ -18,6 +25,10 @@ const CustomerProductCard = ({ product, viewProductPopup }) => {
     rating,
     productDescription,
   } = product;
+
+  const dispatch = useDispatch();
+
+  const { customerInfoFulfilled } = useSelector(selectCustomer);
 
   return (
     <div
@@ -114,7 +125,37 @@ const CustomerProductCard = ({ product, viewProductPopup }) => {
             ""
           )}
         </div>
-        <button className="w-100 mt-1 c-add">Add to List</button>
+        {!customerInfoFulfilled ? (
+          <button
+            className="w-100 mt-1 c-add"
+            onClick={(e) => {
+              e.stopPropagation();
+              createAccountMessage();
+            }}
+          >
+            Add to list
+          </button>
+        ) : (
+          <button
+            className="w-100 mt-1 c-add"
+            onClick={(e) => {
+              e.stopPropagation();
+              dispatch(
+                openAddItemPopup({
+                  _id,
+                  productImage: productImages[0],
+                  productName,
+                  productShop,
+                  productPrice,
+                  productStock,
+                  productUnit,
+                })
+              );
+            }}
+          >
+            Add to list
+          </button>
+        )}
       </div>
     </div>
   );

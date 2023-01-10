@@ -28,8 +28,7 @@ const SearchResult = () => {
 
   const { customerInfoFulfilled } = useSelector(selectCustomer);
 
-  const createAccountMessage = (e) => {
-    e.preventDefault();
+  const createAccountMessage = () => {
     toast.warn("Create customer account to add favorite shops!");
   };
 
@@ -87,6 +86,7 @@ const SearchResult = () => {
               <CustomerProductCard
                 product={product}
                 viewProductPopup={viewProductPopup}
+                createAccountMessage={createAccountMessage}
                 key={key}
               />
             );

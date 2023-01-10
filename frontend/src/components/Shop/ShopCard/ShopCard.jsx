@@ -87,7 +87,10 @@ const ShopCard = ({ shop, createAccountMessage }) => {
           {!customerInfoFulfilled && (
             <button
               className="w-100 mt-1 c-add"
-              onClick={createAccountMessage ? createAccountMessage : ""}
+              onClick={(e) => {
+                e.preventDefault();
+                createAccountMessage();
+              }}
             >
               Add to favorite
             </button>

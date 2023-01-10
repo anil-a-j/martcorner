@@ -9,6 +9,7 @@ import {
 import { logoutAsShop, selectShop } from "../../../redux/shop/shopSlice";
 import logo from "../../../assets/logo&name.svg";
 import { clearCustomerSearch } from "../../../redux/search/searchSlice";
+import CartBox from "../../cartBox/CartBox";
 
 const MainNavbar = () => {
   const [locked, setLocked] = useState("");
@@ -67,6 +68,9 @@ const MainNavbar = () => {
         {shopInfoFulfilled && (
           <li onClick={() => dispatch(logoutAsShop())}>Logout</li>
         )}
+        <li className="m-0 align-middle">
+          <CartBox />
+        </li>
       </ul>
     </div>
   );

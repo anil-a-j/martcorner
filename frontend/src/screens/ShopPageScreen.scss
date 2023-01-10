@@ -41,13 +41,13 @@
     height: 500px;
     .shop-name {
       background-color: $white-transparent;
-      border-radius: 5px;
+      border-radius: 100px;
     }
   }
   .box {
     background-color: $white;
-    padding: 0 10px 10px;
-    border-radius: 5px;
+    padding: 10px;
+    border-radius: 100px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -55,7 +55,7 @@
   }
   .stripe {
     width: 100%;
-    background-color: $gold;
+    background-color: $menu;
     padding: 5px 10px;
   }
   .shop-contents {

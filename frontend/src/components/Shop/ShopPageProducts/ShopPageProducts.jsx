@@ -24,6 +24,10 @@ const ShopPageProducts = ({ id }) => {
     shopSearchProductsRejected,
   } = useSelector(selectSearch);
 
+  const createAccountMessage = () => {
+    toast.warn("Create customer account to add favorite shops!");
+  };
+
   const viewProductPopup = (product) => {
     setShowProduct(!showProduct);
     setProductData(product);
@@ -64,6 +68,7 @@ const ShopPageProducts = ({ id }) => {
             <CustomerProductCard
               product={product}
               viewProductPopup={viewProductPopup}
+              createAccountMessage={createAccountMessage}
               key={key}
             />
           );

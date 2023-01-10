@@ -1,0 +1,11 @@
+@import "../../utilities/sass/variables";
+
+.cartBox {
+  width: 80px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100px;
+  background-color: $black-transparent;
+}

@@ -24,7 +24,7 @@ body {
     height: 50px;
     padding: 10px;
     width: 100%;
-    border-radius: 5px;
+    border-radius: 10px;
     font-weight: 400;
     &:focus-visible {
       border: 2px solid $green;
@@ -87,7 +87,7 @@ body {
   //////////////////////////////////////////////////////////////////////////
   .input-combined {
     background-color: $white;
-    border-radius: 5px;
+    border-radius: 10px;
     &:focus-within {
       outline: 2px solid $green;
     }
@@ -110,6 +110,10 @@ body {
     }
     &.delete {
       background-color: $delete;
+      color: $white;
+    }
+    &.add {
+      background-color: $green;
       color: $white;
     }
     &.search {
@@ -182,7 +186,7 @@ body {
     font-weight: 600;
     font-size: 12px;
     padding: 2px 10px;
-    border-radius: 5px;
+    border-radius: 10px;
     margin: 10px 0px 5px 0px;
     &.info {
       color: $info-fg;
@@ -212,7 +216,7 @@ body {
       height: 100%;
       border: 1px solid $menu;
       position: absolute;
-      border-radius: 5px;
+      border-radius: 10px;
       border: 2px dashed $black;
       font-weight: 600;
     }
@@ -221,14 +225,14 @@ body {
   .c-card {
     width: 210px;
     height: 380px;
-    border-radius: 5px;
+    border-radius: 10px;
     background: $white;
     position: relative;
     h5 {
       text-transform: capitalize;
     }
     .c-images {
-      border-radius: 5px 5px 0px 0px;
+      border-radius: 10px 10px 0px 0px;
       overflow: hidden;
       position: relative;
       img {
@@ -285,9 +289,9 @@ body {
     }
     .c-discount {
       padding: 8px;
-      color: $white;
-      border-radius: 100%;
-      background-color: $gold;
+      color: $gold;
+      border-radius: 10px;
+      border: 1px solid $gold;
     }
     .c-shop-description {
       height: 80px;
@@ -360,14 +364,21 @@ body {
         width: 400px;
         height: 250px;
         background-color: $bg;
-        border-radius: 5px;
+        border-radius: 10px;
+      }
+    }
+    &.popup-medium {
+      .content {
+        height: 400px;
+        background-color: $bg;
+        border-radius: 10px;
       }
     }
     &.popup-large {
       .content {
         padding: 25px;
         background-color: $bg;
-        border-radius: 5px;
+        border-radius: 10px;
       }
     }
     &.popup-delete {
@@ -465,7 +476,7 @@ body {
   .form-box {
     background-color: $data-box;
     padding: 20px;
-    border-radius: 5px;
+    border-radius: 10px;
   }
   .Toastify__toast-container {
     z-index: 999;

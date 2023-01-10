@@ -5,6 +5,7 @@ import miscSliceReducer from "./misc/miscSlice";
 import searchSliceReducer from "./search/searchSlice";
 import productSliceReducer from "./product/productSlice";
 import reviewSliceReducer from "./review/reviewSlice";
+import cartSliceReducer from "./cart/cartSlice";
 
 export default configureStore({
   reducer: {
@@ -14,5 +15,6 @@ export default configureStore({
     search: searchSliceReducer,
     product: productSliceReducer,
     review: reviewSliceReducer,
+    cart: cartSliceReducer,
   },
 });
