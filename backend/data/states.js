@@ -1,3 +1,3 @@
-const states = [{ state: "Kerala", country: "632e37235f0cbff425d91d76" }];
+const states = [{ state: "Kerala", country: "64876a861116075cc66446d8" }];
 
 export default states;
